@@ -42,6 +42,7 @@ st.markdown("""
 .metric-card .value { color: #e6e9ef; font-size: 1.7rem; font-weight: 700; margin-top: 2px; }
 .metric-card .sub { color: #4da3ff; font-size: .85rem; }
 .src-live { color:#3ddc97; font-weight:600; }
+.src-snap { color:#4da3ff; font-weight:600; }
 .src-cache { color:#ffb454; font-weight:600; }
 </style>
 """, unsafe_allow_html=True)
@@ -119,9 +120,14 @@ except Exception as e:
     st.stop()
 
 if source == "celestrak-live":
-    st.markdown('<span class="src-live">live Celestrak data</span>', unsafe_allow_html=True)
+    st.markdown('<span class="src-live">● live Celestrak data</span>',
+                unsafe_allow_html=True)
+elif source.startswith("snapshot"):
+    when = source[source.find("(") + 1:source.find(")")] if "(" in source else "recent"
+    st.markdown(f'<span class="src-snap">● recent snapshot ({when}) · real orbital data</span>',
+                unsafe_allow_html=True)
 else:
-    st.markdown('<span class="src-cache">cached sample data (live fetch unavailable)</span>',
+    st.markdown('<span class="src-cache">● sample constellation (illustrative)</span>',
                 unsafe_allow_html=True)
 
 tab1, tab2 = st.tabs(["Best pass", f"Upcoming passes ({hours} h)"])
