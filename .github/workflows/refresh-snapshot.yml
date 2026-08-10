@@ -1,0 +1,42 @@
+name: Refresh TLE snapshot
+
+# Keeps ntntoolkit/data/starlink_snapshot.tle current so the deployed app serves
+# recent REAL orbital data even when its own live Celestrak fetch is rate-limited.
+#
+# Runs daily, and can be triggered by hand from the Actions tab (Run workflow).
+
+on:
+  schedule:
+    - cron: "17 5 * * *"        # 05:17 UTC daily (off-peak, arbitrary minute)
+  workflow_dispatch:            # manual "Run workflow" button
+
+permissions:
+  contents: write               # allow the job to commit the refreshed file
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch latest Starlink TLEs
+        run: python tools/refresh_snapshot.py
+
+      - name: Commit snapshot if it changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- ntntoolkit/data/starlink_snapshot.tle; then
+            echo "No change in snapshot - nothing to commit."
+          else
+            git add ntntoolkit/data/starlink_snapshot.tle
+            git commit -m "Auto-refresh Starlink TLE snapshot"
+            git push
+            echo "Snapshot updated and pushed."
+          fi
