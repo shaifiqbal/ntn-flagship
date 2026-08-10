@@ -1,3 +1,6 @@
+[![Live App](https://img.shields.io/badge/▶_Live_App-overpass.streamlit.app-4da3ff?style=for-the-badge)](https://overpass.streamlit.app)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 # Overpass 🛰️
 
 **The flagship of a 12-week 5G Non-Terrestrial Networks portfolio.** Overpass is a live
