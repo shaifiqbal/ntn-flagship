@@ -48,11 +48,50 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 PRESETS = {
+    # ---- United Kingdom ----
     "Aberdeen, UK": (57.1497, -2.0943, 65.0),
+    "Belfast, UK": (54.5973, -5.9301, 6.0),
+    "Birmingham, UK": (52.4862, -1.8904, 140.0),
+    "Bristol, UK": (51.4545, -2.5879, 11.0),
+    "Cardiff, UK": (51.4816, -3.1791, 9.0),
+    "Coventry, UK": (52.4068, -1.5197, 90.0),
+    "Dundee, UK": (56.4620, -2.9707, 15.0),
+    "Edinburgh, UK": (55.9533, -3.1883, 47.0),
+    "Glasgow, UK": (55.8642, -4.2518, 40.0),
+    "Leeds, UK": (53.8008, -1.5491, 65.0),
+    "Leicester, UK": (52.6369, -1.1398, 62.0),
+    "Liverpool, UK": (53.4084, -2.9916, 70.0),
     "London, UK": (51.5074, -0.1278, 35.0),
+    "Manchester, UK": (53.4808, -2.2426, 38.0),
+    "Newcastle, UK": (54.9783, -1.6178, 45.0),
+    "Nottingham, UK": (52.9548, -1.1581, 45.0),
+    "Plymouth, UK": (50.3755, -4.1427, 15.0),
+    "Sheffield, UK": (53.3811, -1.4701, 60.0),
+    "Southampton, UK": (50.9097, -1.4044, 9.0),
+    "Swansea, UK": (51.6214, -3.9436, 10.0),
+    # ---- World ----
+    "Auckland, New Zealand": (-36.8509, 174.7645, 20.0),
+    "Beijing, China": (39.9042, 116.4074, 44.0),
+    "Berlin, Germany": (52.5200, 13.4050, 34.0),
+    "Buenos Aires, Argentina": (-34.6037, -58.3816, 25.0),
+    "Cape Town, South Africa": (-33.9249, 18.4241, 25.0),
+    "Delhi, India": (28.7041, 77.1025, 216.0),
+    "Dubai, UAE": (25.2048, 55.2708, 16.0),
+    "Lagos, Nigeria": (6.5244, 3.3792, 41.0),
+    "Los Angeles, USA": (34.0522, -118.2437, 89.0),
+    "Mexico City, Mexico": (19.4326, -99.1332, 2240.0),
+    "Moscow, Russia": (55.7558, 37.6173, 156.0),
+    "Mumbai, India": (19.0760, 72.8777, 14.0),
+    "Nairobi, Kenya": (-1.2921, 36.8219, 1795.0),
     "New York, USA": (40.7128, -74.0060, 10.0),
+    "Paris, France": (48.8566, 2.3522, 35.0),
     "Singapore": (1.3521, 103.8198, 15.0),
-    "Custom": None,
+    "Sydney, Australia": (-33.8688, 151.2093, 58.0),
+    "São Paulo, Brazil": (-23.5505, -46.6333, 760.0),
+    "Tokyo, Japan": (35.6762, 139.6503, 40.0),
+    "Toronto, Canada": (43.6532, -79.3832, 76.0),
+    # ---- Custom ----
+    "Custom (enter lat/lon)": None,
 }
 
 
